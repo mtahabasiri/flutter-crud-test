@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mc_crud_test/config/theme_data.dart';
+import 'package:mc_crud_test/routing/route_generator.dart';
 
 void main() {
   runApp(const Rayankar());
@@ -15,7 +16,7 @@ class Rayankar extends StatelessWidget {
       key: navigatorKey,
       title: 'Rayankar',
       theme: ThemeConfig.themeData,
-      initialRoute: '/home',
+      onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
 }
