@@ -1,29 +1,40 @@
 import 'package:collection/collection.dart';
+import 'package:hive/hive.dart';
+import 'package:fixnum/fixnum.dart';
 
+part 'customer.g.dart';
+
+@HiveType(typeId: 1)
 class Customer {
-  final String? firstName;
-  final String? lastName;
-  final String? dateOfBirth;
-  final String? phoneNumber;
-  final String? email;
-  final String? bankAccountNumber;
+  @HiveField(0)
+  final String firstName;
+  @HiveField(1)
+  final String lastName;
+  @HiveField(2)
+  final String dateOfBirth;
+  @HiveField(3)
+  final Int64 phoneNumber;
+  @HiveField(4)
+  final String email;
+  @HiveField(5)
+  final String bankAccountNumber;
 
   const Customer({
-    this.firstName,
-    this.lastName,
-    this.dateOfBirth,
-    this.phoneNumber,
-    this.email,
-    this.bankAccountNumber,
+    required this.firstName,
+    required this.lastName,
+    required this.dateOfBirth,
+    required this.phoneNumber,
+    required this.email,
+    required this.bankAccountNumber,
   });
 
   factory Customer.fromJson(Map<String, dynamic> json) => Customer(
-        firstName: json['firstName'] as String?,
-        lastName: json['lastName'] as String?,
-        dateOfBirth: json['dateOfBirth'] as String?,
-        phoneNumber: json['phoneNumber'] as String?,
-        email: json['email'] as String?,
-        bankAccountNumber: json['bankAccountNumber'] as String?,
+        firstName: json['firstName'],
+        lastName: json['lastName'],
+        dateOfBirth: json['dateOfBirth'],
+        phoneNumber: json['phoneNumber'],
+        email: json['email'],
+        bankAccountNumber: json['bankAccountNumber'],
       );
 
   Map<String, dynamic> toJson() => {
@@ -39,7 +50,7 @@ class Customer {
     String? firstName,
     String? lastName,
     String? dateOfBirth,
-    String? phoneNumber,
+    Int64? phoneNumber,
     String? email,
     String? bankAccountNumber,
   }) {

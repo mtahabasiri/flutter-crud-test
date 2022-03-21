@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mc_crud_test/routing/routes.dart';
 import 'package:mc_crud_test/views/home/home.dart';
 import 'package:mc_crud_test/views/home/home_state.dart';
+import 'package:mc_crud_test/views/user_form/user_form.dart';
 import 'package:provider/provider.dart';
 
 class RouteGenerator {
@@ -12,6 +13,13 @@ class RouteGenerator {
           ChangeNotifierProvider<HomeState>(
             create: (context) => HomeState(),
             child: const Home(),
+          ),
+        );
+      case Routes.userForm:
+        return _createRoute(
+          ChangeNotifierProvider<HomeState>.value(
+            value: settings.arguments as HomeState,
+            child: const CustomerForm(),
           ),
         );
       default:

@@ -19,4 +19,14 @@ class ActionSheetUtils {
     DesignConfig.updateSystemUiOverlayStyle();
     Navigator.of(context).pop();
   }
+
+  static Future<DateTime?> openDatePicker() async {
+    final result = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(1900),
+      lastDate: DateTime.now(),
+    );
+    return result;
+  }
 }

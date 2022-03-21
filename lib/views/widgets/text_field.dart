@@ -26,7 +26,7 @@ class RayankarTextField extends StatefulWidget {
     this.initialValue,
     this.validator,
     this.textInputType,
-    this.textAlign = TextAlign.right,
+    this.textAlign = TextAlign.left,
     this.autoFocus = false,
     this.onSubmitted,
     this.acceptSpace = true,
@@ -87,6 +87,7 @@ class _RayankarTextFieldState extends State<RayankarTextField> {
             validator: _validator,
             obscuringCharacter: '*',
             decoration: InputDecoration(
+              contentPadding: const EdgeInsets.only(left: 8, bottom: 4),
               enabled: widget.enabled,
               border: InputBorder.none,
               hintText: widget.hintText,
